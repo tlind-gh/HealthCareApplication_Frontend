@@ -1,27 +1,9 @@
 import { useAuth } from "../hooks/useAuth";
 import Logo from "../assets/health_care_logo.svg";
-import styled from "styled-components";
+import styles from "./styles/AdminDashboard.module.css";
 import Logout from "./Logout";
 
-// Styled components for admin dashboard layout
-const AdminContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-`;
-
-const LogoContainer = styled.img`
-  height: 20rem;
-`;
-
-const Title = styled.h2`
-  font-size: 22px;
-`;
-
-const Text = styled.p`
-  font-size: 18px;
-`;
+// Styles moved to AdminDashboard.module.css and imported as `styles`.
 
 // Only accessible to users with the "Admin" role
 function AdminDashboard() {
@@ -30,12 +12,12 @@ function AdminDashboard() {
   } = useAuth();
 
   return (
-    <AdminContainer>
-      <LogoContainer src={Logo} alt="Health Care Logo" />
-      <Title>Admin Dashboard</Title>
-      <Text>Welcome, {user}!</Text>
+    <div className={styles.adminContainer}>
+      <img className={styles.logoContainer} src={Logo} alt="Health Care Logo" />
+      <h2 className={styles.title}>Admin Dashboard</h2>
+      <p className={styles.text}>Welcome, {user}!</p>
       <Logout />
-    </AdminContainer>
+    </div>
   );
 }
 
