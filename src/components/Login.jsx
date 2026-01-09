@@ -1,64 +1,9 @@
-import styled from "styled-components";
+import styles from "./styles/Login.module.css";
 import { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
-
-// Styled components for login page layout
-const LoginContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-`;
-
-const LoginButton = styled.button`
-  cursor: pointer;
-  padding: 10px 30px;
-  background-color: #057d7a;
-  border-radius: 10px;
-  font-size: 18px;
-  font-weight: 600;
-  color: #fff;
-  margin-top: 40px;
-  transition: background-color 0.3s ease, transform 0.2s ease,
-    box-shadow 0.2s ease;
-  text-align: center;
-  border: none;
-
-  &:hover {
-    background-color: #2fadaa;
-    transform: translateY(-3px);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-  }
-`;
-
-const Title = styled.h2`
-  font-size: 22px;
-`;
-
-const FormWrapper = styled.form`
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  background-color: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  width: 350px;
-  gap: 10px;
-`;
-
-const StyledInput = styled.input`
-  font-size: 16px;
-  border: 1px solid #ddd;
-  background-color: #fafafa;
-  border-radius: 5px;
-  padding: 5px 0px;
-
-  &:focus {
-    outline: none;
-  }
-`;
+// Styles moved to Login.module.css and imported as `styles`.
 
 function Login() {
   const { setAuthState } = useAuth();
@@ -111,12 +56,17 @@ function Login() {
   };
 
   return (
-    <LoginContainer>
-      <Title>Login</Title>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <FormWrapper onSubmit={handleLogin} aria-label="Login form">
+    <div className={styles.loginContainer}>
+      <h2 className={styles.title}>Login</h2>
+      {error && <p className={styles.errorText}>{error}</p>}
+      <form
+        className={styles.formWrapper}
+        onSubmit={handleLogin}
+        aria-label="Login form"
+      >
         <label htmlFor="username">Username:</label>
-        <StyledInput
+        <input
+          className={styles.styledInput}
           id="username"
           name="username"
           type="text"
@@ -125,7 +75,8 @@ function Login() {
           required
         />
         <label htmlFor="password">Password:</label>
-        <StyledInput
+        <input
+          className={styles.styledInput}
           id="password"
           name="password"
           type="password"
@@ -133,9 +84,11 @@ function Login() {
           onChange={handleInputChange}
           required
         />
-        <LoginButton type="submit">Login</LoginButton>
-      </FormWrapper>
-    </LoginContainer>
+        <button className={styles.loginButton} type="submit">
+          Login
+        </button>
+      </form>
+    </div>
   );
 }
 
