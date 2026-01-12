@@ -10,17 +10,25 @@ function Availability() {
     authState: { user },
   } = useAuth();
 
-  const [selectedDate, setSelectedDate] = useState(() => {
-    const today = new Date();
-    return today.toISOString().slice(0, 10); // YYYY-MM-DD
-  });
-
   const hourlySlots = Array.from(
     { length: WORKDAY_END_TIME - WORKDAY_START_TIME },
     (_, index) => ({
       start: WORKDAY_START_TIME + index,
       end: WORKDAY_START_TIME + index + 1,
     })
+  );
+
+  const [selectedDate, setSelectedDate] = useState(() => {
+    const today = new Date();
+    return today.toISOString().slice(0, 10); // YYYY-MM-DD
+  });
+
+  const [slots] = useState(() =>
+    hourlySlots.map((slot) => ({
+      ...slot,
+      // TODO: replace this with real availability data from the backend
+      isAvailable: false,
+    }))
   );
 
   return (
@@ -46,7 +54,7 @@ function Availability() {
 
       <section>
         <div className={styles.slotsGrid}>
-          {hourlySlots.map((slot) => {
+          {slots.map((slot) => {
             const startLabel = `${String(slot.start).padStart(2, "0")}:00`;
             const endLabel = `${String(slot.end).padStart(2, "0")}:00`;
             return (
