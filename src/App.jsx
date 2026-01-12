@@ -12,6 +12,7 @@ import Unauthorized from "./components/Unauthorized";
 import Home from "./components/Home";
 import RequireAuth from "./components/RequireAuth";
 import GlobalStyle from "./styles/GlobalStyle";
+import Availability from "./components/Availabilty";
 
 // AuthProvider must wrap Router to ensure auth state is available to all routes
 function App() {
@@ -38,9 +39,8 @@ function App() {
             <Route
               path="/provider/availability"
               element={
-                <RequireAuth allowedRoles={["PROVIDER", "ADMIN"]}> // TODO: change to correct ENUM role name for caregivers
-                  <Availability />
-                </RequireAuth>
+                // TODO: re-wrap with <RequireAuth> and allowedRoles={["PROVIDER", "ADMIN"]} before production
+                <Availability />
               }
             />
             <Route
