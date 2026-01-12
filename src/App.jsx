@@ -36,6 +36,14 @@ function App() {
               }
             />
             <Route
+              path="/provider/availability"
+              element={
+                <RequireAuth allowedRoles={["PROVIDER", "ADMIN"]}> // TODO: change to correct ENUM role name for caregivers
+                  <Availability />
+                </RequireAuth>
+              }
+            />
+            <Route
               path="/admin/dashboard"
               element={
                 <RequireAuth allowedRoles={["ADMIN"]}>
