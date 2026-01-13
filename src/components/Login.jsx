@@ -1,4 +1,4 @@
-import styles from "./styles/LoginRegister.module.css"
+import styles from "./styles/LoginRegister.module.css";
 import { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../hooks/useAuth";
@@ -81,7 +81,7 @@ function Login() {
           value={credentials.password}
           onChange={handleInputChange}
         />
-         {error && <p className={styles.errorText}>{error}</p>}
+        {error && <p className={styles.errorText}>{error}</p>}
         <button className={styles.submitButton} type="submit">
           Login
         </button>

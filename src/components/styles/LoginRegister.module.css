@@ -4,6 +4,17 @@
   font-style: italic;
   margin: 0;
   font-size: 14px;
+  
+}
+
+.successText {
+  color: green;
+  text-align: centerq
+  ;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap:2rem
 }
 
 .loginRegisterContainer {
