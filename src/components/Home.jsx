@@ -11,6 +11,9 @@ const Home = () => (
     <Link className={styles.loginButton} to="/login">
       Login
     </Link>
+    <Link className={styles.loginButton} to="/register">
+      Register
+    </Link>
   </div>
 );
 

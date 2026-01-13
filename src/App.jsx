@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import Login from "./components/Login";
+import Register from "./components/Register";
 import UserDashboard from "./components/UserDashboard";
 import AdminDashboard from "./components/AdminDashboard";
 import Unauthorized from "./components/Unauthorized";
@@ -24,13 +25,14 @@ function App() {
             {/* Public routes - accessible without authentication */}
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/unauthorized" element={<Unauthorized />} />
 
             {/* Protected routes - require authentication and specific roles */}
             <Route
               path="/user/dashboard"
               element={
-                <RequireAuth allowedRoles={["USER"]}>
+                <RequireAuth allowedRoles={["PATIENT"]}>
                   <UserDashboard />
                 </RequireAuth>
               }
