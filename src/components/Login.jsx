@@ -1,6 +1,6 @@
 import styles from "./styles/LoginRegister.module.css";
 import { useState } from "react";
-import axios from "axios";
+import api from "../api/axios.js";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 // Styles moved to Login.module.css and imported as `styles`.
@@ -22,15 +22,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "http://localhost:8080/auth/login",
-        credentials,
-        {
-          // withCredentials: true is required for the server to set HTTP-only cookies
-          // This is essential for cookie-based authentication
-          withCredentials: true,
-        }
-      );
+      const response = await api.post("/auth/login", credentials);
 
       console.log("Login successful:", JSON.stringify(response.data));
 

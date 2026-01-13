@@ -1,6 +1,6 @@
 import styles from "./styles/LoginRegister.module.css";
 import { useState } from "react";
-import axios from "axios";
+import api from "../api/axios";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
@@ -57,17 +57,15 @@ function Register() {
     if (!validateForm()) return;
 
     try {
-      const response = await axios.post(
-        "http://localhost:8080/auth/register",
-        userData,
-        { withCredentials: true }
-      );
-
+      const response = await api.post("/auth/register", userData);
       setShowSuccess(true);
+
       setTimeout(() => {
         navigate("/login", { replace: true });
       }, 3000);
+
     } catch (error) {
+      
       if (error.response && error.response.status === 409) {
         const message = error.response.data;
         const newErrors = {};
@@ -96,7 +94,7 @@ function Register() {
         <div className={styles.formWrapper}>
           <p className={styles.successText}>
             <span>Registration Successful</span>
-            <span> Redirecting to login page...</span>
+            <span>Redirecting to login page...</span>
           </p>
         </div>
       ) : (

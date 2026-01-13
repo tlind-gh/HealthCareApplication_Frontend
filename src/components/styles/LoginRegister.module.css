@@ -9,8 +9,7 @@
 
 .successText {
   color: green;
-  text-align: centerq
-  ;
+  text-align: center;
   font-size: 18px;
   display: flex;
   flex-direction: column;
