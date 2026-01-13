@@ -1,6 +1,6 @@
 import styles from "./styles/LoginRegister.module.css";
 import { useState } from "react";
-import api from "../api/axios.js";
+import api from "../api/axios";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 // Styles moved to Login.module.css and imported as `styles`.
