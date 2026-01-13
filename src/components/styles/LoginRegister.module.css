@@ -1,6 +1,9 @@
 /* Styles moved from styled-components in Login.jsx */
 .errorText {
-  color: red;
+  color: crimson;
+  font-style: italic;
+  margin: 0;
+  font-size: 14px;
 }
 
 .loginRegisterContainer {
@@ -56,4 +59,8 @@
 
 .styledInput:focus {
   outline: none;
+}
+
+.requiredText {
+  font-style: italic;
 }

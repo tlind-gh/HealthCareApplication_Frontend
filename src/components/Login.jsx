@@ -1,4 +1,4 @@
-import styles from "./styles/LoginRegister.module.css";
+import styles from "./styles/LoginRegister.module.css"
 import { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../hooks/useAuth";
@@ -58,7 +58,6 @@ function Login() {
   return (
     <div className={styles.loginRegisterContainer}>
       <h2 className={styles.title}>Login</h2>
-      {error && <p className={styles.errorText}>{error}</p>}
       <form
         className={styles.formWrapper}
         onSubmit={handleLogin}
@@ -72,7 +71,6 @@ function Login() {
           type="text"
           value={credentials.username}
           onChange={handleInputChange}
-          required
         />
         <label htmlFor="password">Password:</label>
         <input
@@ -82,8 +80,8 @@ function Login() {
           type="password"
           value={credentials.password}
           onChange={handleInputChange}
-          required
         />
+         {error && <p className={styles.errorText}>{error}</p>}
         <button className={styles.submitButton} type="submit">
           Login
         </button>
