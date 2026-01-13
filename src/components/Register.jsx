@@ -1,4 +1,4 @@
-import styles from "./styles/Login.module.css";
+import styles from "./styles/LoginRegister.module.css";
 import { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../hooks/useAuth";
@@ -55,13 +55,13 @@ function Register() {
   };
 
   return (
-    <div className={styles.loginContainer}>
-      <h2 className={styles.title}>Login</h2>
+    <div className={styles.loginRegisterContainer}>
+      <h2 className={styles.title}>Register</h2>
       {error && <p className={styles.errorText}>{error}</p>}
       <form
         className={styles.formWrapper}
         onSubmit={handleLogin}
-        aria-label="Login form"
+        aria-label="Registration form"
       >
         <label htmlFor="username">Username:</label>
         <input
@@ -83,7 +83,7 @@ function Register() {
           onChange={handleInputChange}
           required
         />
-        <button className={styles.loginButton} type="submit">
+        <button className={styles.submitButton} type="submit">
           Login
         </button>
       </form>

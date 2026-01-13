@@ -3,14 +3,14 @@
   color: red;
 }
 
-.loginContainer {
+.loginRegisterContainer {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
-.loginButton {
+.submitButton {
   cursor: pointer;
   padding: 10px 30px;
   background-color: #057d7a;
@@ -25,7 +25,7 @@
   border: none;
 }
 
-.loginButton:hover {
+.submitButton:hover {
   background-color: #2fadaa;
   transform: translateY(-3px);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
