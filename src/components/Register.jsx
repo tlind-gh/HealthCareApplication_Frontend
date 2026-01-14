@@ -61,7 +61,7 @@ function Register() {
       setShowSuccess(true);
 
       setTimeout(() => {
-        navigate("/login", { replace: true });
+        navigate("/", { replace: true });
       }, 3000);
 
     } catch (error) {
@@ -94,7 +94,7 @@ function Register() {
         <div className={styles.formWrapper}>
           <p className={styles.successText}>
             <span>Registration Successful</span>
-            <span>Redirecting to login page...</span>
+            <span>Redirecting to home page...</span>
           </p>
         </div>
       ) : (
