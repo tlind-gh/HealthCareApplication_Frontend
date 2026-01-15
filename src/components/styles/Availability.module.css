@@ -46,3 +46,12 @@
   background-color: #dcfce7;
   font-size: 0.9rem;
 }
+
+.loadingMessage {
+  margin-bottom: 1rem;
+}
+
+.errorMessage {
+  color: #dc2626;
+  margin-bottom: 1rem;
+}

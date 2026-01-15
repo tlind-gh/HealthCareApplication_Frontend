@@ -39,8 +39,9 @@ function App() {
             <Route
               path="/provider/availability"
               element={
-                // TODO: re-wrap with <RequireAuth> and allowedRoles={["PROVIDER", "ADMIN"]} before production
-                <Availability />
+                <RequireAuth allowedRoles={["PROVIDER", "ADMIN"]}>
+                  <Availability />
+                </RequireAuth>
               }
             />
             <Route
