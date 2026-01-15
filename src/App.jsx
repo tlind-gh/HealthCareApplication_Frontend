@@ -12,6 +12,7 @@ import Unauthorized from "./components/Unauthorized";
 import Home from "./components/Home";
 import RequireAuth from "./components/RequireAuth";
 import GlobalStyle from "./styles/GlobalStyle";
+import Availability from "./components/Availabilty";
 
 // AuthProvider must wrap Router to ensure auth state is available to all routes
 function App() {
@@ -32,6 +33,14 @@ function App() {
               element={
                 <RequireAuth allowedRoles={["USER"]}>
                   <UserDashboard />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/provider/availability"
+              element={
+                <RequireAuth allowedRoles={["PROVIDER", "ADMIN"]}>
+                  <Availability />
                 </RequireAuth>
               }
             />
