@@ -8,9 +8,14 @@ const Home = () => (
   <div className={styles.homeContainer}>
     <img className={styles.logoContainer} src={Logo} alt="Health Care Logo" />
     <h1 className={styles.title}>Health Care Appointment App</h1>
-    <Link className={styles.loginButton} to="/login">
-      Login
-    </Link>
+    <div className={styles.buttonContainer}>
+      <Link className={styles.loginRegisterButton} to="/login">
+        Login
+      </Link>
+      <Link className={styles.loginRegisterButton} to="/register">
+        Register
+      </Link>
+    </div>
   </div>
 );
 

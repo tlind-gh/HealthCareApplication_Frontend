@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: "Roboto", sans-serif;
     width: 100vw;
     height: 100vh;
+    white-space: pre-line;
   }
 
   .content {

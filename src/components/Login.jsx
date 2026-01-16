@@ -1,6 +1,6 @@
-import styles from "./styles/Login.module.css";
+import styles from "./styles/LoginRegister.module.css";
 import { useState } from "react";
-import axios from "axios";
+import api from "../api/axios";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 // Styles moved to Login.module.css and imported as `styles`.
@@ -22,15 +22,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "http://localhost:8080/auth/login",
-        credentials,
-        {
-          // withCredentials: true is required for the server to set HTTP-only cookies
-          // This is essential for cookie-based authentication
-          withCredentials: true,
-        }
-      );
+      const response = await api.post("/auth/login", credentials);
 
       console.log("Login successful:", JSON.stringify(response.data));
 
@@ -56,9 +48,8 @@ function Login() {
   };
 
   return (
-    <div className={styles.loginContainer}>
+    <div className={styles.loginRegisterContainer}>
       <h2 className={styles.title}>Login</h2>
-      {error && <p className={styles.errorText}>{error}</p>}
       <form
         className={styles.formWrapper}
         onSubmit={handleLogin}
@@ -72,7 +63,6 @@ function Login() {
           type="text"
           value={credentials.username}
           onChange={handleInputChange}
-          required
         />
         <label htmlFor="password">Password:</label>
         <input
@@ -82,9 +72,9 @@ function Login() {
           type="password"
           value={credentials.password}
           onChange={handleInputChange}
-          required
         />
-        <button className={styles.loginButton} type="submit">
+        {error && <p className={styles.errorText}>{error}</p>}
+        <button className={styles.submitButton} type="submit">
           Login
         </button>
       </form>
